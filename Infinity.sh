@@ -77,9 +77,9 @@ export KBUILD_HOSTNAME="$BUILD_HOSTNAME"
 #keys
 git clone https://github.com/FirmanBell/platinakeys vendor/evolution-priv/keys
 
-grep -q "vendor/evolution-priv/keys/keys.mk" device/xiaomi/platina/BoardConfig.mk || sed -i '$ a -include vendor/evolution-priv/keys/keys.mk' device/xiaomi/platina/lineage_platina.mk
+grep -q "vendor/evolution-priv/keys/keys.mk" device/xiaomi/platina/BoardConfig.mk || sed -i '$ a -include vendor/evolution-priv/keys/keys.mk' device/xiaomi/platina/infinity_platina.mk
 #sed -i 's/PRODUCT_CERTIFICATE_OVERRIDES/PRODUCT_PACKAGE_NAME_OVERRIDES/g' vendor/evolution-priv/keys/keys.mk
-tail -5 device/xiaomi/platina/lineage_platina.mk
+tail -5 device/xiaomi/platina/infinity_platina.mk
 
 echo "==> Lunching target..."
 lunch infinity_platina-user
