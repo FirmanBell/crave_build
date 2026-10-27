@@ -24,7 +24,7 @@ if [ -d "device/xiaomi/platina" ]; then
     rm -rf device/xiaomi/platina
 fi
 mkdir -p device/xiaomi
-git clone --depth 1 --branch InfinityX https://github.com/andrey167/android_device_xiaomi_platina.git device/xiaomi/platina
+git clone --depth 1 --branch InfinityX https://github.com/FirmanBell/android_device_xiaomi_platina.git device/xiaomi/platina
 
 # Kernel Source
 if [ -d "kernel/xiaomi/sdm660" ]; then
@@ -32,9 +32,7 @@ if [ -d "kernel/xiaomi/sdm660" ]; then
     rm -rf kernel/xiaomi/sdm660
 fi
 mkdir -p kernel/xiaomi
-git clone --depth 1 --branch Platinum https://github.com/andrey167/kernel_xiaomi_platinum.git kernel/xiaomi/sdm660
-# KernelSu-next
-(cd kernel/xiaomi/sdm660 && rm -rf KernelSU && curl -LSs "https://raw.githubusercontent.com/andrey167/KernelSU/refs/heads/main-susfs/kernel/setup.sh" | bash -s main-susfs)
+git clone --depth 1 --branch 16.2 https://github.com/FirmanBell/kernel_xiaomi_platina.git kernel/xiaomi/sdm660
 
 # Vendor Source
 if [ -d "vendor/xiaomi/platina" ]; then
@@ -42,7 +40,7 @@ if [ -d "vendor/xiaomi/platina" ]; then
     rm -rf vendor/xiaomi/platina
 fi
 mkdir -p vendor/xiaomi
-git clone --depth 1 --branch Platina https://github.com/andrey167/android_vendor_xiaomi_platina.git vendor/xiaomi/platina
+git clone --depth 1 --branch Platina https://github.com/FirmanBell/android_vendor_xiaomi_platina.git vendor/xiaomi/platina
 
 # Hardware Source
 if [ -d "hardware/xiaomi" ]; then
@@ -57,7 +55,7 @@ if [ -d "hardware/dolby" ]; then
     echo "==> Removing old hardware/dolby..."
     rm -rf hardware/dolby
 fi
-git clone https://github.com/andrey167/hardware_dolby hardware/dolby 
+git clone https://github.com/FirmanBell/hardware_dolby hardware/dolby 
 
 ########################################
 # BUILD SETUP
@@ -70,14 +68,14 @@ rm -f out/target/product/platina/*.zip
 echo "==> Preparing environment..."
 . build/envsetup.sh
 
-export BUILD_USERNAME=andrey
+export BUILD_USERNAME=Lolipop
 export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
 export KBUILD_USERNAME="$BUILD_USERNAME"
 export KBUILD_HOSTNAME="$BUILD_HOSTNAME"
 
 #keys
-git clone https://github.com/andrey167/platinakeys vendor/evolution-priv/keys
+git clone https://github.com/FirmanBell/platinakeys vendor/evolution-priv/keys
 
 grep -q "vendor/evolution-priv/keys/keys.mk" device/xiaomi/platina/BoardConfig.mk || sed -i '$ a -include vendor/evolution-priv/keys/keys.mk' device/xiaomi/platina/lineage_platina.mk
 #sed -i 's/PRODUCT_CERTIFICATE_OVERRIDES/PRODUCT_PACKAGE_NAME_OVERRIDES/g' vendor/evolution-priv/keys/keys.mk
