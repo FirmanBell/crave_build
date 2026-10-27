@@ -28,7 +28,7 @@ crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_
 
 Project Infinity-X
 ```bash
-crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Infinity.sh | bash"
+crave run --no-patch -- "curl https://raw.githubusercontent.com/FirmanBell/crave_build/refs/heads/Platina/Infinity.sh | bash"
 ```
 
 AICP
