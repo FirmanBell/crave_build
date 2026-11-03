@@ -24,7 +24,7 @@ if [ -d "device/xiaomi/platina" ]; then
     rm -rf device/xiaomi/platina
 fi
 mkdir -p device/xiaomi
-git clone --depth 1 --branch InfinityX https://github.com/FirmanBell/android_device_xiaomi_platina.git device/xiaomi/platina
+git clone --depth 1 --branch Infinity-X https://github.com/FirmanBell/android_device_xiaomi_platina.git device/xiaomi/platina
 
 # Kernel Source
 if [ -d "kernel/xiaomi/sdm660" ]; then
